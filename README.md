@@ -100,3 +100,20 @@ Nada aqui é estimado. Tudo foi contado no histórico público da marca em 04/10
 
 > O site atual da marca exibe "+10 experiências realizadas". O histórico dele mesmo
 > lista 30. Vale corrigir lá também.
+
+## Carrossel do Instagram
+
+As miniaturas ficam em `assets/insta/` e os links em `POSTS`, no fim do `index.html`.
+Ficam locais de propósito: a URL do CDN do Instagram é assinada e expira em poucos dias,
+então apontar direto para ela quebraria o carrossel sozinho.
+
+Para atualizar, troque os arquivos e os links em `POSTS`.
+
+Se quiser que ele se atualize sozinho, há dois caminhos:
+
+1. **Instagram Graph API** — exige conta Business ou Creator ligada a uma página do
+   Facebook, um app na Meta e um token de longa duração renovado a cada 60 dias.
+   O endpoint é `/me/media?fields=id,media_url,permalink,caption,timestamp`.
+   A API antiga, Basic Display, foi descontinuada em dezembro de 2024.
+2. **Widget de terceiro** (LightWidget, EmbedSocial, Elfsight) — resolve em minutos,
+   mas carrega script externo e a maioria cobra mensalidade.

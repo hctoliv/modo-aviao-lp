@@ -248,6 +248,36 @@ section[id]{scroll-margin-top:90px}
 .gallery img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;transition:transform .6s ease}
 .gallery figure:hover img{transform:scale(1.03)}
 
+/* ---------- carrossel do Instagram ---------- */
+.insta-head{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-end;justify-content:space-between;margin-bottom:2.6rem}
+.insta-ctrl{display:flex;align-items:center;gap:.6rem}
+.insta-arrows{display:none;gap:.4rem}
+@media (min-width:900px){.insta-arrows{display:flex}}
+.seta{
+  width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--ink);
+  font-size:1rem;cursor:pointer;border-radius:0;transition:all .2s;line-height:1;
+}
+.seta:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.insta-trilho{
+  display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:0 24px 1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.insta-trilho::-webkit-scrollbar{display:none}
+@media (min-width:1000px){.insta-trilho{padding-inline:48px}}
+.insta-item{flex:0 0 72%;scroll-snap-align:start;position:relative;display:block;overflow:hidden;background:var(--blush)}
+@media (min-width:620px){.insta-item{flex-basis:38%}}
+@media (min-width:1000px){.insta-item{flex-basis:24%}}
+@media (min-width:1400px){.insta-item{flex-basis:19%}}
+.insta-item img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;transition:transform .5s ease}
+.insta-item:hover img{transform:scale(1.04)}
+.insta-item::after{
+  content:"Ver no Instagram";position:absolute;inset:auto 0 0 0;
+  padding:1.6rem .9rem .8rem;color:#fff;font-size:.72rem;letter-spacing:.06em;
+  background:linear-gradient(transparent, rgba(28,24,20,.72));
+  opacity:0;transition:opacity .25s;
+}
+.insta-item:hover::after,.insta-item:focus-visible::after{opacity:1}
+
 /* ---------- faq ---------- */
 .faq{max-width:740px;margin-inline:auto;border-top:1px solid var(--line)}
 .faq details{border-bottom:1px solid var(--line);padding:1.3rem 0}
@@ -261,14 +291,29 @@ section[id]{scroll-margin-top:90px}
 .faq p{margin-top:.85rem;color:var(--muted);font-size:.95rem;max-width:var(--measure)}
 
 /* ---------- cta final ---------- */
-.final{background:var(--blush);text-align:center;border-top:1px solid var(--line)}
+/* foto de fundo como textura: dois véus de marfim mantêm o texto escuro
+   sobre claro, o mesmo contraste do resto da página */
+.final{
+  position:relative;isolation:isolate;overflow:hidden;
+  background:var(--blush);text-align:center;border-top:1px solid var(--line);
+}
+.final::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:url("assets/img/g03.jpg") center 32%/cover no-repeat;
+}
+.final::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, rgba(247,238,206,.945) 0%, rgba(250,245,226,.93) 50%, rgba(247,238,206,.955) 100%);
+}
+.final .kicker{color:#7a5c33}
+.final p{color:#5f564a}
 .final h2{font-family:var(--sans);font-weight:400;font-size:clamp(1.95rem,4.2vw,3rem);line-height:1.1;margin:1.2rem 0 1.3rem;letter-spacing:-.02em}
 .final h2 em{font-style:normal;color:var(--clay-deep)}
 .final p{color:var(--muted);max-width:48ch;margin-inline:auto}
 .final .hero-cta{justify-content:center;margin-top:2.2rem}
 
 /* ---------- rodapé ---------- */
-footer.site{border-top:1px solid var(--line);padding:3.6rem 0 2.4rem}
+footer.site{border-top:1px solid var(--line);padding:3.8rem 0 2.4rem}
 .foot{display:grid;gap:2.4rem;grid-template-columns:1fr}
 @media (min-width:840px){.foot{grid-template-columns:1.4fr 1fr 1fr}}
 .foot h4{font-size:.65rem;font-weight:600;letter-spacing:var(--track);text-transform:uppercase;color:var(--coffee);margin:0 0 1rem}
@@ -594,6 +639,12 @@ body.menu-open{overflow:hidden}
       <figure><img src="assets/img/g10.jpg" alt="Participante sorrindo no meio do encontro" loading="lazy" width="800" height="1000"></figure>
       <figure><img src="assets/img/g11.jpg" alt="Conversa entre participantes em volta da mesa" loading="lazy" width="800" height="1000"></figure>
       <figure><img src="assets/img/g12.jpg" alt="Mesa cheia de gente criando junto" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g13.jpg" alt="Grupo de participantes pintando em volta da mesa" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g14.jpg" alt="Mão pintando os detalhes de uma taça" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g15.jpg" alt="Participantes conversando entre uma pincelada e outra" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g16.jpg" alt="Encontro ao ar livre em uma tarde de sol" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g17.jpg" alt="Tela e material de pintura prontos sobre a mesa" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g18.jpg" alt="Participante concentrada na própria peça" loading="lazy" width="800" height="1000"></figure>
     </div>
   </div>
 </section>
@@ -633,6 +684,27 @@ body.menu-open{overflow:hidden}
       </details>
     </div>
   </div>
+</section>
+
+<!-- ================= INSTAGRAM ================= -->
+<section id="instagram">
+  <div class="wrap">
+    <div class="insta-head reveal">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="kicker">No Instagram</p>
+        <h2>As últimas <em>do nosso feed.</em></h2>
+      </div>
+      <div class="insta-ctrl">
+        <a class="btn btn-outline btn-sm" href="https://www.instagram.com/clubmodoaviao/" target="_blank" rel="noopener">Seguir @clubmodoaviao</a>
+        <div class="insta-arrows">
+          <button type="button" class="seta" data-dir="-1" aria-label="Posts anteriores">&larr;</button>
+          <button type="button" class="seta" data-dir="1" aria-label="Próximos posts">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insta-trilho reveal" id="instaTrilho" tabindex="0" role="region" aria-label="Últimas publicações no Instagram"></div>
 </section>
 
 <!-- ================= CTA FINAL ================= -->
@@ -844,6 +916,36 @@ if ('IntersectionObserver' in window) {
   }, 300));
 } else {
   alvos.forEach(el => el.classList.add('in'));
+}
+
+/* ===== Carrossel do Instagram =====
+   As miniaturas ficam em assets/insta/ para não depender de URL assinada do
+   CDN do Instagram, que expira. Para atualizar, troque os arquivos e os links. */
+const POSTS = [
+  { img:'assets/insta/ig1.jpg',  url:'https://www.instagram.com/clubmodoaviao/p/Dd_5w6cFXN6/', data:'2 de outubro' },
+  { img:'assets/insta/ig2.jpg',  url:'https://www.instagram.com/clubmodoaviao/p/Dd4-pz1lSTk/', data:'29 de setembro' },
+  { img:'assets/insta/ig3.jpg',  url:'https://www.instagram.com/clubmodoaviao/p/Dd30avDFfby/', data:'29 de setembro' },
+  { img:'assets/insta/ig4.jpg',  url:'https://www.instagram.com/clubmodoaviao/p/Dd1NNfJlcxG/', data:'28 de setembro' },
+  { img:'assets/insta/ig5.jpg',  url:'https://www.instagram.com/clubmodoaviao/p/DdyuRS8scBY/', data:'27 de setembro' },
+  { img:'assets/insta/ig6.jpg',  url:'https://www.instagram.com/clubmodoaviao/p/DdwTtrWFRY7/', data:'26 de setembro' },
+  { img:'assets/insta/ig7.jpg',  url:'https://www.instagram.com/clubmodoaviao/p/Ddtn0NwFapl/', data:'25 de setembro' },
+  { img:'assets/insta/ig8.jpg',  url:'https://www.instagram.com/clubmodoaviao/p/Ddo2KM2Ffkt/', data:'23 de setembro' },
+  { img:'assets/insta/ig9.jpg',  url:'https://www.instagram.com/clubmodoaviao/p/DdZyK8btBcU/', data:'17 de setembro' },
+  { img:'assets/insta/ig10.jpg', url:'https://www.instagram.com/clubmodoaviao/p/Dchgd4kFZrf/', data:'26 de agosto' },
+];
+
+const trilho = document.getElementById('instaTrilho');
+if (trilho) {
+  trilho.innerHTML = POSTS.map(p => `<a class="insta-item" href="${esc(p.url)}" target="_blank" rel="noopener">
+    <img src="${esc(p.img)}" alt="Publicação do Modo Avião no Instagram, ${esc(p.data)}" loading="lazy" width="520" height="520">
+  </a>`).join('');
+
+  document.querySelectorAll('.seta').forEach(b => b.addEventListener('click', () => {
+    const tile = trilho.querySelector('.insta-item');
+    if (!tile) return;
+    const passo = tile.getBoundingClientRect().width + 16;
+    trilho.scrollBy({ left: passo * Number(b.dataset.dir), behavior:'smooth' });
+  }));
 }
 
 document.getElementById('yr').textContent = new Date().getFullYear();
