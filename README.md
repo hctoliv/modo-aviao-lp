@@ -93,7 +93,7 @@ Nada aqui é estimado. Tudo foi contado no histórico público da marca em 04/10
 
 | Número | Fonte |
 |---|---|
-| **30** experiências realizadas | histórico completo em clubmodoaviao.com, expandindo "Ver mais experiências". Vai de 21/jun/2025 a 30/set/2026 |
+| **+30** experiências realizadas | histórico completo em clubmodoaviao.com, expandindo "Ver mais experiências": 30 encontros, de 21/jun/2025 a 30/set/2026. O "+" cobre os que não estão listados lá, como a Pintura em taça de 11/jun |
 | **17** datas em outubro | calculado em tempo real a partir do array `EVENTOS`, nunca desatualiza |
 | **+100** pessoas na comunidade | número que a própria marca publica |
 | **8** casas parceiras | Krog 721, De Sá, Mr. Texas, Perobah, Sweet Moments, Proce, Becos e Conect 1 |
