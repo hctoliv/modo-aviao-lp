@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modo Avião | Experiências criativas presenciais em SP e ABC</title>
+<meta name="description" content="Encontros criativos presenciais para desacelerar, pintar com as próprias mãos e conhecer gente nova. Grupos pequenos, material incluso, em São Paulo, Santo André e São Bernardo.">
+<meta name="theme-color" content="#fcfaf1">
+<link rel="icon" href="assets/logo-modo-aviao.jpg">
+<link rel="apple-touch-icon" href="assets/logo-modo-aviao.jpg">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Modo Avião">
+<meta property="og:title" content="Modo Avião | O mundo pode esperar.">
+<meta property="og:description" content="Experiências criativas presenciais para desacelerar, criar com as próprias mãos e viver momentos que ficam na memória.">
+<meta property="og:image" content="assets/img/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/img/hero.jpg" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================================================
+   MODO AVIÃO
+   Paleta e tipografia da marca. Direção: clean e aconchegante.
+   Regras: nenhuma imagem com texto, nenhum travessão na copy, muito ar.
+   ===================================================================== */
+:root{
+  --cream:#fcfaf1;      /* papel marfim, na linha da Aesop */
+  --card:#fffef7;       /* superfície */
+  --blush:#f2eee2;      /* seções alternadas */
+  --line:#e0d9c9;       /* hairlines */
+  --sand:#e8d58e;       /* amarelo do selo da marca */
+  --sand-soft:#f7eece;
+  --clay:#d8873a;       /* cor de ação */
+  --clay-deep:#b96e2a;
+  --rose:#dfafb3;
+  --sage:#8a9a7b;
+  --coffee:#8c6a4e;
+  --ink:#302c27;
+  --muted:#7b7166;
+
+  --serif:"Cormorant Garamond", ui-serif, Georgia, serif;
+  --sans:"Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --track:.18em;
+  --maxw:1240px;
+  --measure:38rem;      /* medida de leitura */
+  --r:0px;              /* cantos retos */
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.78;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:400;letter-spacing:-.012em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:4px}
+
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
+@media (min-width:1000px){.wrap{padding-inline:48px}}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:var(--cream);padding:10px 16px;border-radius:8px;transition:top .2s}
+.skip:focus{top:12px}
+
+/* ---------- tipografia ---------- */
+.display{font-family:var(--serif);font-weight:300;line-height:1.04;letter-spacing:-.02em}
+.display em{font-style:italic;color:var(--clay)}
+.kicker{font-size:.66rem;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--coffee)}
+@media (min-width:640px){.kicker{font-size:.68rem}}
+.lead{font-size:1.04rem;color:var(--muted);max-width:var(--measure)}
+
+/* ---------- logotipo: o selo do Instagram ---------- */
+.logo{display:inline-flex;align-items:center;text-decoration:none;color:inherit}
+.logo img{width:50px;height:50px;border-radius:50%;display:block;background:var(--sand)}
+.logo-lg img{width:72px;height:72px}
+
+/* ---------- botões ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:1.05rem 1.9rem;border-radius:0;border:1px solid transparent;
+  font-size:.86rem;font-weight:400;letter-spacing:.01em;text-decoration:none;cursor:pointer;
+  transition:background-color .25s ease, border-color .25s ease, color .25s ease;
+}
+.btn-primary{background:var(--clay);color:#fff}
+.btn-primary:hover{background:var(--clay-deep)}
+.btn-outline{border-color:var(--ink);background:transparent;color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--cream)}
+.btn-wa{background:var(--sage);color:#fff}
+.btn-wa:hover{background:#7b8b6d}
+.btn-sm{padding:.7rem 1.3rem;font-size:.79rem}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;background:rgba(250,246,240,.9);
+  backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid transparent;transition:border-color .25s;
+}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:78px}
+.nav-links{display:none;gap:1.9rem}
+.nav-links a{
+  text-decoration:none;font-size:.69rem;font-weight:500;text-transform:uppercase;
+  letter-spacing:var(--track);color:var(--muted);transition:color .18s;
+}
+.nav-links a:hover{color:var(--ink)}
+@media (min-width:1000px){.nav-links{display:flex}}
+#navCta{display:none}
+@media (min-width:640px){#navCta{display:inline-flex}}
+
+/* ---------- hero dividido: a copy nunca fica sobre a foto ---------- */
+.hero{padding:0;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1fr}
+@media (min-width:940px){
+  .hero-grid{grid-template-columns:1.02fr .98fr;align-items:stretch;min-height:min(84svh,720px)}
+}
+.hero-media{order:1;position:relative;background:var(--blush)}
+.hero-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;object-position:50% 32%}
+@media (min-width:600px){.hero-media img{aspect-ratio:16/10}}
+@media (min-width:940px){
+  .hero-media{order:2}
+  .hero-media img{aspect-ratio:auto;position:absolute;inset:0;object-position:50% 30%}
+}
+.hero-copy{order:2;display:flex;flex-direction:column;justify-content:center;padding:3.2rem 22px 3.6rem}
+@media (min-width:940px){
+  .hero-copy{order:1;padding:5rem 4.5rem 5rem max(22px,calc((100vw - var(--maxw))/2 + 22px))}
+}
+.hero-copy h1{font-size:clamp(2.4rem,6.2vw,4.4rem);margin:1.3rem 0 1.4rem;max-width:13ch}
+.hero-copy p{color:var(--muted);max-width:34rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:2rem}
+.proof{margin-top:1.3rem;font-size:.88rem;color:var(--muted);max-width:34rem}
+.proof b{color:var(--ink);font-weight:500}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:.3rem 1.3rem;margin-top:2.2rem;padding-top:1.4rem;
+  border-top:1px solid var(--line);
+  font-size:.7rem;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+}
+
+/* ---------- seções ---------- */
+section{padding:clamp(5.5rem,12vw,11rem) 0}
+section[id]{scroll-margin-top:90px}
+.sec-alt{background:var(--blush)}
+.sec-head{max-width:var(--measure);margin-bottom:4.2rem}
+.sec-head h2{font-family:var(--sans);font-weight:400;font-size:clamp(1.9rem,3.8vw,2.85rem);line-height:1.1;margin:1.2rem 0 1.3rem;letter-spacing:-.018em}
+.sec-head h2 em{font-style:normal;color:var(--clay)}
+
+/* ---------- pilares ---------- */
+.pillars{display:grid;gap:2.6rem 2.4rem;grid-template-columns:1fr}
+@media (min-width:800px){.pillars{grid-template-columns:repeat(3,1fr)}}
+.pillar{border-top:1px solid var(--line);padding-top:1.5rem}
+.pillar h3{font-family:var(--sans);font-size:1.12rem;font-weight:500;line-height:1.35;margin-bottom:.6rem}
+.pillar p{color:var(--muted);font-size:.97rem}
+
+/* ---------- passos ---------- */
+.steps{display:grid;gap:2.4rem;grid-template-columns:1fr;counter-reset:s}
+@media (min-width:700px){.steps{grid-template-columns:repeat(2,1fr);gap:3rem 2.6rem}}
+@media (min-width:1020px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{counter-increment:s}
+.step::before{
+  content:"0" counter(s);display:block;margin-bottom:1rem;
+  font-family:var(--sans);font-size:.78rem;font-weight:500;letter-spacing:.18em;color:var(--clay);line-height:1;
+}
+.step h3{font-family:var(--sans);font-size:1rem;font-weight:500;margin-bottom:.5rem}
+.step p{color:var(--muted);font-size:.94rem}
+
+/* ---------- história ---------- */
+.about{display:grid;gap:3rem;align-items:center;grid-template-columns:1fr}
+@media (min-width:940px){.about{grid-template-columns:.88fr 1.12fr;gap:5rem}}
+.about-media img{aspect-ratio:4/5;object-fit:cover;width:100%;height:auto}
+.about-media figcaption{margin-top:.9rem;font-size:.78rem;letter-spacing:.02em;color:var(--muted)}
+.about h2{font-family:var(--sans);font-weight:400;font-size:clamp(1.8rem,3.4vw,2.5rem);line-height:1.12;margin:1.1rem 0 1.5rem;letter-spacing:-.018em}
+.about h2 em{font-style:normal;color:var(--clay)}
+.about p{color:var(--muted);max-width:34rem}
+.about p + p{margin-top:1.05rem}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem 1rem;margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.7rem}
+@media (min-width:620px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stats b{display:block;font-family:var(--sans);font-weight:400;font-size:1.75rem;line-height:1;letter-spacing:-.02em;color:var(--clay)}
+.stats span{font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- experiências ---------- */
+.xp{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+@media (min-width:640px){.xp{grid-template-columns:repeat(2,1fr);column-gap:2.4rem}}
+@media (min-width:1020px){.xp{grid-template-columns:repeat(4,1fr)}}
+.xp-item{border-bottom:1px solid var(--line);padding:1.5rem 0}
+.xp-item h3{font-family:var(--sans);font-size:1rem;font-weight:500;margin-bottom:.35rem}
+.xp-item p{font-size:.92rem;color:var(--muted)}
+
+/* ---------- agenda ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2.4rem}
+.chip{
+  border:1px solid var(--line);background:transparent;color:var(--muted);
+  border-radius:0;padding:.55rem 1.15rem;font:inherit;font-size:.74rem;font-weight:500;
+  letter-spacing:.04em;cursor:pointer;transition:all .2s;
+}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+
+.agenda{border-top:1px solid var(--line)}
+.ev{
+  display:grid;grid-template-columns:auto 1fr;gap:.9rem 1.2rem;align-items:start;
+  padding:1.5rem 0;border-bottom:1px solid var(--line);transition:background-color .2s;
+}
+@media (min-width:860px){
+  .ev{grid-template-columns:72px 1fr auto;align-items:center;gap:2rem;padding:1.6rem .7rem}
+  .ev:hover{background:var(--card)}
+}
+.ev-date{text-align:center;width:72px}
+.ev-date b{display:block;font-family:var(--sans);font-weight:400;font-size:1.5rem;line-height:1;letter-spacing:-.02em}
+.ev-date span{display:block;font-size:.58rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--coffee)}
+.ev-main h3{font-family:var(--sans);font-size:1.02rem;font-weight:500;margin-bottom:.3rem}
+.ev-meta{font-size:.87rem;color:var(--muted)}
+.ev-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.55rem}
+.tag{
+  font-size:.58rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;
+  border-radius:0;padding:.26rem .66rem;color:var(--coffee);border:1px solid var(--line);
+}
+.tag-hot{background:var(--sand-soft);border-color:var(--sand)}
+.ev-cta-mobile{grid-column:1/-1}
+@media (min-width:860px){.ev-cta-mobile{display:none}}
+.ev-cta-desk{display:none}
+@media (min-width:860px){.ev-cta-desk{display:inline-flex}}
+.agenda-note{margin-top:1.8rem;font-size:.87rem;color:var(--muted)}
+.agenda-note a{color:var(--clay-deep)}
+
+/* ---------- depoimentos ---------- */
+.quotes{display:grid;gap:2.6rem;grid-template-columns:1fr}
+@media (min-width:840px){.quotes{grid-template-columns:repeat(3,1fr);gap:3rem 2.6rem}}
+.quote{display:flex;flex-direction:column;border-top:1px solid var(--line);padding-top:1.6rem;margin:0}
+.quote p{font-family:var(--serif);font-size:1.42rem;font-weight:300;line-height:1.42;flex:1}
+.quote footer{margin-top:1.4rem;font-size:.82rem;color:var(--muted)}
+.quote footer b{display:block;color:var(--ink);font-size:.88rem;font-weight:600}
+
+/* ---------- momentos ---------- */
+.gallery{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr)}
+@media (min-width:900px){.gallery{grid-template-columns:repeat(3,1fr);gap:1.2rem}}
+.gallery figure{margin:0;overflow:hidden}
+.gallery img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;transition:transform .6s ease}
+.gallery figure:hover img{transform:scale(1.03)}
+
+/* ---------- faq ---------- */
+.faq{max-width:740px;margin-inline:auto;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:1.3rem 0}
+.faq summary{
+  cursor:pointer;list-style:none;font-weight:400;font-size:1.02rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.25rem;font-weight:400;color:var(--clay);line-height:1;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{margin-top:.85rem;color:var(--muted);font-size:.95rem;max-width:var(--measure)}
+
+/* ---------- cta final ---------- */
+.final{background:var(--blush);text-align:center;border-top:1px solid var(--line)}
+.final h2{font-family:var(--sans);font-weight:400;font-size:clamp(1.95rem,4.2vw,3rem);line-height:1.1;margin:1.2rem 0 1.3rem;letter-spacing:-.02em}
+.final h2 em{font-style:normal;color:var(--clay-deep)}
+.final p{color:var(--muted);max-width:48ch;margin-inline:auto}
+.final .hero-cta{justify-content:center;margin-top:2.2rem}
+
+/* ---------- rodapé ---------- */
+footer.site{border-top:1px solid var(--line);padding:3.6rem 0 2.4rem}
+.foot{display:grid;gap:2.4rem;grid-template-columns:1fr}
+@media (min-width:840px){.foot{grid-template-columns:1.4fr 1fr 1fr}}
+.foot h4{font-size:.65rem;font-weight:600;letter-spacing:var(--track);text-transform:uppercase;color:var(--coffee);margin:0 0 1rem}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.foot a{text-decoration:none;color:var(--muted);font-size:.92rem;transition:color .18s}
+.foot a:hover{color:var(--ink)}
+.foot-bottom{
+  margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:space-between;
+  font-size:.78rem;color:var(--muted);
+}
+
+/* ---------- barra fixa no mobile ---------- */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(250,246,240,.96);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:.7rem 16px calc(.7rem + env(safe-area-inset-bottom));
+  display:flex;transform:translateY(110%);transition:transform .3s ease;
+}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta .btn{flex:1}
+@media (min-width:1000px){.sticky-cta{display:none}}
+
+
+/* ---------- bloco dividido: texto estreito à esquerda, imagem à direita ---------- */
+.split{display:grid;gap:3rem;grid-template-columns:1fr;align-items:center}
+@media (min-width:980px){.split{grid-template-columns:1fr 1fr;gap:5.5rem}}
+.split .sec-head{margin-bottom:0}
+.dots{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.15rem}
+.dots li{display:grid;grid-template-columns:auto 1fr;gap:.85rem;align-items:start;color:var(--muted);font-size:.97rem}
+.dots li::before{content:"";width:5px;height:5px;background:var(--clay);border-radius:50%;margin-top:.62rem}
+.dots b{display:block;color:var(--ink);font-weight:500}
+
+/* ---------- menu hamburger ---------- */
+.burger{
+  display:inline-flex;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;padding:0 9px;border:0;background:transparent;cursor:pointer;
+  border-radius:999px;flex:none;
+}
+.burger span{display:block;height:1.5px;background:var(--ink);border-radius:2px;transition:transform .3s ease, opacity .25s ease}
+.burger span:nth-child(2){width:68%;margin-left:auto;transition:opacity .2s ease, width .3s ease}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0;width:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media (min-width:1000px){.burger{display:none}}
+
+body.menu-open{overflow:hidden}
+.menu{
+  position:fixed;inset:0;z-index:70;background:var(--cream);
+  display:flex;flex-direction:column;overflow-y:auto;
+  opacity:0;visibility:hidden;transition:opacity .26s ease, visibility .26s;
+}
+.menu.open{opacity:1;visibility:visible}
+.menu-top{display:flex;align-items:center;justify-content:space-between;height:78px;gap:1rem}
+.menu-nav{display:flex;flex-direction:column;padding:1.6rem 0 .5rem;border-top:1px solid var(--line)}
+.menu-nav a{
+  font-family:var(--sans);font-size:1.45rem;font-weight:400;letter-spacing:-.015em;line-height:1.6;
+  text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line);padding:.55rem 0;
+}
+.menu-foot{margin-top:auto;padding:1.8rem 0 2.4rem;display:grid;gap:.6rem}
+
+/* ---------- faixa de foto ---------- */
+.banda{margin:0}
+.banda img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.banda figcaption{margin-top:.9rem;font-size:.78rem;letter-spacing:.02em;color:var(--muted)}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease, transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#agenda">Pular para as próximas datas</a>
+
+<!-- ================= HEADER ================= -->
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Modo Avião, início"><img src="assets/logo-modo-aviao.jpg" alt="Modo Avião, hobbies e arte" width="150" height="150"></a>
+
+    <nav class="nav-links" aria-label="Seções da página">
+      <a href="#sobre">O que é</a>
+      <a href="#como">Como funciona</a>
+      <a href="#experiencias">Experiências</a>
+      <a href="#agenda">Próximas datas</a>
+      <a href="#depoimentos">Depoimentos</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:.4rem">
+      <a class="btn btn-primary btn-sm" id="navCta" href="#agenda">Garantir meu ingresso <span aria-hidden="true">&rarr;</span></a>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MENU ================= -->
+<div class="menu" id="menu" hidden>
+  <div class="wrap" style="display:flex;flex-direction:column;flex:1">
+    <div class="menu-top">
+      <span class="logo" aria-hidden="true"><img src="assets/logo-modo-aviao.jpg" alt="" width="150" height="150"></span></span>
+      </span>
+      <button class="burger" type="button" data-close aria-expanded="true" aria-label="Fechar menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="menu-nav" aria-label="Menu principal">
+      <a href="#sobre">O que é</a>
+      <a href="#como">Como funciona</a>
+      <a href="#experiencias">Experiências</a>
+      <a href="#agenda">Próximas datas</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#momentos">Momentos</a>
+    </nav>
+
+    <div class="menu-foot">
+      <a class="btn btn-primary" id="menuCta" href="#agenda">Garantir meu ingresso <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-wa" href="https://chat.whatsapp.com/EPo0idUk9N3L3bdqj8YurQ" target="_blank" rel="noopener">Entrar na comunidade do WhatsApp</a>
+      <a class="btn btn-outline" href="https://www.instagram.com/clubmodoaviao/" target="_blank" rel="noopener">Instagram @clubmodoaviao</a>
+    </div>
+  </div>
+</div>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-grid">
+    <div class="hero-media">
+      <img src="assets/img/hero.jpg" alt="Duas participantes pintando taças lado a lado em uma tarde de luz natural" fetchpriority="high" width="900" height="1200">
+    </div>
+    <div class="hero-copy">
+      <p class="kicker">Experiências criativas presenciais · São Paulo e ABC</p>
+      <h1 id="h1" class="display">O mundo pode esperar. <em>Ative o modo avião.</em></h1>
+      <p>Três horas longe do automático para pintar, conversar de verdade e sair com uma peça feita por você. E com gente nova na sua vida.</p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" id="heroCta" href="#agenda">Garantir meu ingresso <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-outline" href="#sobre">Conhecer o Modo Avião</a>
+      </div>
+
+      <p class="proof">Já são <b>30 encontros realizados</b> desde junho de 2025, em São Paulo, Santo André e São Bernardo.</p>
+
+      <p class="hero-meta">
+        <span>Grupos pequenos</span>
+        <span>Material incluso</span>
+        <span>Não precisa saber pintar</span>
+        <span>Pode vir sozinha</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= O QUE É ================= -->
+<section id="sobre">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <div class="sec-head">
+          <p class="kicker">O que é o Modo Avião</p>
+          <h2>Um clube de encontros para <em>desacelerar criando.</em></h2>
+          <p class="lead">Não é aula, não é curso e não tem prova. É uma mesa posta, material na frente de você, música baixa e três horas em que ninguém cobra nada, nem você de si mesma.</p>
+        </div>
+
+        <ul class="dots">
+          <li><span><b>Você cria com as mãos</b>Taça, caneca, bowl, ecobag, tela, vela, cerâmica. Tudo guiado, no seu ritmo, e a peça vai embora com você.</span></li>
+          <li><span><b>Você chega sozinha e sai acompanhada</b>A maior parte das pessoas vem sem conhecer ninguém. Os grupos são pequenos de propósito.</span></li>
+          <li><span><b>Você sai do automático</b>Celular na mesa, cabeça em outro lugar. Uma pausa que não cabe em uma notificação.</span></li>
+        </ul>
+      </div>
+
+      <figure class="banda reveal" style="margin:0">
+        <img src="assets/img/banda.jpg" alt="Duas participantes conversando e rindo durante uma experiência de pintura" loading="lazy" width="1600" height="900">
+        <figcaption>Grupos pequenos, luz natural e tempo para conversar sem pressa.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<section id="como" class="sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Como funciona</p>
+      <h2>Do ingresso ao abraço na saída, <em>em quatro passos.</em></h2>
+    </div>
+
+    <div class="steps">
+      <article class="step reveal">
+        <h3>Escolha a data</h3>
+        <p>Veja as próximas experiências em São Bernardo, Santo André ou São Paulo e escolha a que cabe na sua agenda.</p>
+      </article>
+      <article class="step reveal">
+        <h3>Garanta seu ingresso</h3>
+        <p>A reserva é feita pelo Sympla, com vagas limitadas. Em poucos cliques o lugar é seu.</p>
+      </article>
+      <article class="step reveal">
+        <h3>Apareça do seu jeito</h3>
+        <p>Chegue como estiver. Todo o material já está na mesa e a condução é passo a passo. Zero experiência exigida.</p>
+      </article>
+      <article class="step reveal">
+        <h3>Leve a peça e as histórias</h3>
+        <p>Você sai com algo feito pela sua mão, fotos do encontro e um convite para a comunidade no WhatsApp.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HISTÓRIA ================= -->
+<section id="historia">
+  <div class="wrap">
+    <div class="about">
+      <figure class="about-media reveal" style="margin:0">
+        <img src="assets/img/historia.jpg" alt="Mesa preparada para a experiência, com tela, taça e material de pintura" loading="lazy" width="800" height="1000">
+        <figcaption>A mesa pronta antes de todo mundo chegar.</figcaption>
+      </figure>
+
+      <div class="reveal">
+        <p class="kicker">Quem está por trás</p>
+        <h2>Tudo começou porque <em>eu também precisava de uma pausa.</em></h2>
+        <p>Oi, eu sou a <strong>Gabriela Ferreira</strong>. Um dia percebi que a minha vida tinha virado só trabalho e tela: acordar, produzir, dormir, repetir. Agenda cheia e, ainda assim, aquela sensação de solidão.</p>
+        <p>Eu queria tempo de qualidade, mas tudo parecia caro demais. Então fiz o mais simples: chamei uma amiga para pintar comigo. Ela chamou outra, que chamou mais uma. E aquela mesa pequena virou uma sala cheia de gente rindo e conversando de verdade.</p>
+        <p>Foi assim que nasceu o Modo Avião. Hoje, cada experiência é um convite para desligar do automático, criar sem pressa e sair com uma peça, boas histórias e gente nova na sua vida.</p>
+
+        <div class="stats">
+          <div><b>30</b><span>experiências realizadas</span></div>
+          <div><b id="statDatas">17</b><span>datas só em outubro</span></div>
+          <div><b>+100</b><span>pessoas na comunidade</span></div>
+          <div><b>8</b><span>casas parceiras em 3 cidades</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIÊNCIAS ================= -->
+<section id="experiencias" class="sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">O que a gente faz</p>
+      <h2>Cada encontro tem <em>uma peça para chamar de sua.</em></h2>
+      <p class="lead">Todo o material está incluso no ingresso. Você escolhe as cores, o desenho e o ritmo. A gente cuida do resto.</p>
+    </div>
+
+    <div class="xp">
+      <article class="xp-item reveal"><h3>Pintura em taça</h3><p>Pinte sua taça do seu jeito e brinde com ela no mesmo dia.</p></article>
+      <article class="xp-item reveal"><h3>Xícara e caneca</h3><p>Uma peça de uso diário que passa a ter a sua cara.</p></article>
+      <article class="xp-item reveal"><h3>Pintura em bowl</h3><p>Cores e desenhos livres em uma peça que vai para a sua mesa.</p></article>
+      <article class="xp-item reveal"><h3>Pintura em ecobag</h3><p>Tecido, tinta e a sua arte em uma bolsa para usar sempre.</p></article>
+      <article class="xp-item reveal"><h3>Pintura em tela</h3><p>A clássica: tela, pincel, taça na mão e nenhuma pressa.</p></article>
+      <article class="xp-item reveal"><h3>Oficina de velas</h3><p>Passo a passo guiado para montar a sua vela aromática.</p></article>
+      <article class="xp-item reveal"><h3>Cerâmica fria</h3><p>Modelagem manual de um pratinho, sem forno, só mão.</p></article>
+      <article class="xp-item reveal"><h3>Decoupagem</h3><p>Técnica de recorte e colagem para transformar um prato comum.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AGENDA ================= -->
+<section id="agenda">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Próximas datas</p>
+      <h2>Escolha a sua e <em>garanta o ingresso.</em></h2>
+      <p class="lead">São <b id="statDatas2">17</b> datas em outubro, em três cidades. As reservas são feitas pelo Sympla e os grupos são pequenos: quando lota, lota.</p>
+    </div>
+
+    <div class="filters reveal" role="group" aria-label="Filtrar por região">
+      <button class="chip" type="button" data-filter="all" aria-pressed="true">Todas as regiões</button>
+      <button class="chip" type="button" data-filter="sbc" aria-pressed="false">São Bernardo</button>
+      <button class="chip" type="button" data-filter="sa" aria-pressed="false">Santo André</button>
+      <button class="chip" type="button" data-filter="sp" aria-pressed="false">São Paulo</button>
+    </div>
+
+    <div class="agenda" id="agendaList"></div>
+    <p class="agenda-note">Datas de outubro. Novas experiências entram toda semana, acompanhe no <a href="https://www.instagram.com/clubmodoaviao/" target="_blank" rel="noopener">@clubmodoaviao</a>.</p>
+  </div>
+</section>
+
+<!-- ================= DEPOIMENTOS ================= -->
+<section id="depoimentos" class="sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Nas palavras delas</p>
+      <h2>A experiência de <em>quem já viveu.</em></h2>
+    </div>
+
+    <div class="quotes">
+      <blockquote class="quote reveal">
+        <p>“Fui sozinha, mas em nenhum momento me senti sozinha. Foi bom conhecer gente nova, ouvir novas histórias, pintar, sair da rotina.”</p>
+        <footer><b>Ariane Cristino, 26</b>Pintura em tela com vinho</footer>
+      </blockquote>
+      <blockquote class="quote reveal">
+        <p>“Aquela experiência que eu nem sabia que precisava taaaanto. Sem pressa, sem pressão, leve, com mulheres de várias idades e tantas histórias.”</p>
+        <footer><b>Adriana, 55</b>Pintura em tela com vinho</footer>
+      </blockquote>
+      <blockquote class="quote reveal">
+        <p>“Amo o Club Modo Avião. Fui na pintura de taça e já comprei minha próxima experiência. Ambiente acolhedor, tudo que eu precisava para fazer a minha arte.”</p>
+        <footer><b>Joyce Rocha, 31</b>Pintura em taça</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MOMENTOS ================= -->
+<section id="momentos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Momentos</p>
+      <h2>Um olhar sobre <em>os nossos encontros.</em></h2>
+      <p class="lead">Pequenos registros de pessoas sendo inteiramente elas mesmas: mãos criando, conversas sem pressa e luz natural.</p>
+    </div>
+
+    <div class="gallery reveal">
+      <figure><img src="assets/img/g01.jpg" alt="Mesa posta com taça, paleta e pincéis antes do encontro começar" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g02.jpg" alt="Grupo pintando taças lado a lado em uma tarde de sol" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g03.jpg" alt="Participante sorrindo ao lado da taça que acabou de pintar" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g04.jpg" alt="Tela com laço vinho e taça servida, prontas sobre a mesa" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g05.jpg" alt="Duas participantes conversando durante a experiência" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g06.jpg" alt="Taças pintadas à mão sobre a mesa ao fim do encontro" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g07.jpg" alt="Taça de vinho sendo servida durante a experiência" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g08.jpg" alt="Mãos pintando os detalhes de uma peça" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g09.jpg" alt="Grupo reunido na sala clara durante a pintura em tela" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g10.jpg" alt="Participante sorrindo no meio do encontro" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g11.jpg" alt="Conversa entre participantes em volta da mesa" loading="lazy" width="800" height="1000"></figure>
+      <figure><img src="assets/img/g12.jpg" alt="Mesa cheia de gente criando junto" loading="lazy" width="800" height="1000"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec-alt">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center;margin-inline:auto">
+      <p class="kicker">Antes de reservar</p>
+      <h2>Perguntas que <em>sempre chegam.</em></h2>
+    </div>
+
+    <div class="faq reveal">
+      <details open>
+        <summary>Preciso saber pintar?</summary>
+        <p>Não. A maioria das pessoas nunca pintou nada antes. A experiência é guiada passo a passo e o objetivo não é o resultado perfeito, é o processo.</p>
+      </details>
+      <details>
+        <summary>Posso ir sozinha?</summary>
+        <p>Pode e é super comum. Boa parte das participantes chega sem conhecer ninguém, e os grupos são pequenos justamente para que todo mundo se conecte.</p>
+      </details>
+      <details>
+        <summary>O material está incluso?</summary>
+        <p>Sim. Tintas, pincéis, a peça e o suporte estão inclusos no ingresso. A única exceção é a oficina de cerâmica fria, que tem opção de ingresso com ou sem kit de pintura para finalizar em casa. Isso vem descrito na página do evento.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo dura e onde acontece?</summary>
+        <p>Em geral de 19h30 às 22h30 nos dias de semana, e 13h30 às 16h aos sábados. Acontecem em bares e cafés parceiros em São Bernardo do Campo, Santo André e São Paulo. O endereço completo fica na página de cada data.</p>
+      </details>
+      <details>
+        <summary>Como faço a reserva?</summary>
+        <p>Todas as reservas são feitas pelo Sympla, direto no botão de cada data. O pagamento e o ingresso ficam lá, com confirmação por e-mail.</p>
+      </details>
+      <details>
+        <summary>Dá para fazer um evento privado?</summary>
+        <p>Sim. Aniversários, encontros de amigas e eventos corporativos: você escolhe a ocasião, reúne as pessoas e a gente cuida do resto. É só chamar no Instagram ou no WhatsApp.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="final">
+  <div class="wrap">
+    <p class="kicker">Sua próxima pausa</p>
+    <h2 class="display">Você não precisa dar conta <em>de tudo agora.</em></h2>
+    <p>Reserve três horas para você. A gente já separou a mesa, as tintas e a companhia.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" id="finalCta" href="#agenda">Garantir meu ingresso <span aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-wa" href="https://chat.whatsapp.com/EPo0idUk9N3L3bdqj8YurQ" target="_blank" rel="noopener">Entrar na comunidade do WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= RODAPÉ ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo logo-lg" href="#top" aria-label="Modo Avião, voltar ao topo"><img src="assets/logo-modo-aviao.jpg" alt="Modo Avião, hobbies e arte" width="150" height="150"></a>
+        <p style="margin-top:1.2rem;color:var(--muted);font-size:.92rem;max-width:36ch">Arte, conversas e hobbies criativos.<br>São Paulo · Santo André · São Bernardo do Campo.</p>
+      </div>
+
+      <div>
+        <h4>Navegar</h4>
+        <ul>
+          <li><a href="#sobre">O que é o Modo Avião</a></li>
+          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#experiencias">Experiências</a></li>
+          <li><a href="#agenda">Próximas datas</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Falar com a gente</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/clubmodoaviao/" target="_blank" rel="noopener">Instagram @clubmodoaviao</a></li>
+          <li><a href="https://chat.whatsapp.com/EPo0idUk9N3L3bdqj8YurQ" target="_blank" rel="noopener">Comunidade no WhatsApp</a></li>
+          <li><a href="https://clubmodoaviao.com/eventos" target="_blank" rel="noopener">Agenda completa</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> Modo Avião | Hobbies &amp; Arte. Todos os direitos reservados.</span>
+      <span>Reservas pelo Sympla.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <a class="btn btn-primary" id="stickyLink" href="#agenda">Garantir meu ingresso <span aria-hidden="true">&rarr;</span></a>
+</div>
+
+<script>
+/* ========================================================================
+   AGENDA. Fonte única de verdade: edite só esta lista para trocar o mês.
+   Cada item carrega o link direto da página de compra no Sympla.
+   ===================================================================== */
+const EVENTOS = [
+  { d:"08", m:"OUT", dia:"Quinta-feira, 8 de outubro", hora:"19h30 às 22h30",
+    titulo:"Pintura em Caneca", local:"Krog 721 · São Bernardo do Campo/SP", regiao:"sbc",
+    tags:["Público geral"], url:"https://www.sympla.com.br/evento/pintura-em-xicaras-e-caneca/3591487" },
+
+  { d:"08", m:"OUT", dia:"Quinta-feira, 8 de outubro", hora:"19h30 às 22h30",
+    titulo:"Pintura em Tela", local:"Mr. Texas · Carrão · São Paulo/SP", regiao:"sp",
+    tags:["Público geral"], url:"https://www.sympla.com.br/evento/pintura-em-tela-mr-texas-pizzaria/3591609" },
+
+  { d:"09", m:"OUT", dia:"Sexta-feira, 9 de outubro", hora:"19h30 às 22h30",
+    titulo:"Automaquiagem + Pintura em Ecobag", local:"Jardim Colonial · Zona Leste · São Paulo/SP", regiao:"sp",
+    tags:["Duas atividades"], url:"https://www.sympla.com.br/evento/3-experiencias-com-clube-modo-aviao/3562016" },
+
+  { d:"10", m:"OUT", dia:"Sábado, 10 de outubro", hora:"13h30 às 16h",
+    titulo:"Pintura em Bowl", local:"De Sá Bar e Choperia · Santo André/SP", regiao:"sa",
+    tags:["Sábado"], url:"https://www.sympla.com.br/evento/pintura-em-bowl---de-sa-choperia/3591429" },
+
+  { d:"13", m:"OUT", dia:"Terça-feira, 13 de outubro", hora:"20h30",
+    titulo:"🎃 Sessão Filme: Terror Clássico", local:"Krog 721 · São Bernardo do Campo/SP", regiao:"sbc",
+    tags:["Limite de 20 pessoas","R$ 25"], url:"https://www.sympla.com.br/evento/sessao-filmes-classicos-de-terror/3591495" },
+
+  { d:"14", m:"OUT", dia:"Quarta-feira, 14 de outubro", hora:"19h30 às 22h30",
+    titulo:"Pintura em Taça", local:"Krog 721 · São Bernardo do Campo/SP", regiao:"sbc",
+    tags:["Público geral"], url:"https://www.sympla.com.br/evento/pintura-em-taca-no-krog721/3591499" },
+
+  { d:"15", m:"OUT", dia:"Quinta-feira, 15 de outubro", hora:"19h30 às 22h30",
+    titulo:"🎃 Oficina de Velas de Halloween", local:"Krog 721 · São Bernardo do Campo/SP", regiao:"sbc",
+    tags:["Experiência guiada"], url:"https://www.sympla.com.br/evento/oficina-de-vela-na-krog-721/3582656" },
+
+  { d:"16", m:"OUT", dia:"Sexta-feira, 16 de outubro", hora:"19h30 às 22h30",
+    titulo:"Pintura em Ecobag", local:"De Sá Bar e Choperia · Santo André/SP", regiao:"sa",
+    tags:["Público geral"], url:"https://www.sympla.com.br/evento/pintura-em-ecobag/3591446" },
+
+  { d:"16", m:"OUT", dia:"Sexta e domingo, 16 e 18 de outubro", hora:"09h30 às 11h30",
+    titulo:"Pintura em Taça em Pinheiros", local:"Proce Cafeteria · Pinheiros · São Paulo/SP", regiao:"sp",
+    tags:["Manhã","R$ 90"], url:"https://www.sympla.com.br/evento/pintura-em-taca-em-pinheiros/3596111" },
+
+  { d:"17", m:"OUT", dia:"Sábado, 17 de outubro", hora:"13h30 às 16h",
+    titulo:"Pintura em Bowl", local:"Perobah Bar · Tatuapé · São Paulo/SP", regiao:"sp",
+    tags:["Sábado"], url:"https://www.sympla.com.br/evento/pintura-em-bowl-no-perobah-bar/3591465" },
+
+  { d:"22", m:"OUT", dia:"Quinta-feira, 22 de outubro", hora:"19h30 às 22h30",
+    titulo:"Oficina de Decoupagem em Prato", local:"Krog 721 · São Bernardo do Campo/SP", regiao:"sbc",
+    tags:["Experiência guiada"], url:"https://www.sympla.com.br/evento/decupagem-em-prato/3591503" },
+
+  { d:"23", m:"OUT", dia:"Sexta-feira, 23 de outubro", hora:"19h30 às 22h30",
+    titulo:"Pintura em Ecobag", local:"Sweet Moments Café · Vila Clementino · São Paulo/SP", regiao:"sp",
+    tags:["Público geral"], url:"https://www.sympla.com.br/evento/pintura-em-ecobag-na-sweet-moments-cafe/3591833" },
+
+  { d:"24", m:"OUT", dia:"Sábado, 24 de outubro", hora:"13h30 às 16h",
+    titulo:"Oficina de Velas", local:"De Sá Bar e Choperia · Santo André/SP", regiao:"sa",
+    tags:["Experiência guiada","Sábado"], url:"https://www.sympla.com.br/evento/oficina-de-vela-em-santo-andre/3582667" },
+
+  { d:"27", m:"OUT", dia:"Terça-feira, 27 de outubro", hora:"20h30",
+    titulo:"🎃 Sessão Filme: Terror Clássico", local:"Krog 721 · São Bernardo do Campo/SP", regiao:"sbc",
+    tags:["Limite de 20 pessoas","R$ 25"], url:"https://www.sympla.com.br/evento/sessao-filmes-classicos-de-terror/3591495" },
+
+  { d:"28", m:"OUT", dia:"Quarta-feira, 28 de outubro", hora:"19h30 às 22h30",
+    titulo:"🎃 Customização de Chapéu de Bruxa", local:"Krog 721 · São Bernardo do Campo/SP", regiao:"sbc",
+    tags:["Experiência criativa"], url:"https://www.sympla.com.br/evento/customizacao-de-chapeu-de-bruxa--halloween/3591513" },
+
+  { d:"29", m:"OUT", dia:"Quinta-feira, 29 de outubro", hora:"19h30 às 22h30",
+    titulo:"Modelagem em Cerâmica Fria", local:"Krog 721 · São Bernardo do Campo/SP", regiao:"sbc",
+    tags:["Experiência guiada"], url:"https://www.sympla.com.br/evento/modelagem-ceramica-fria/3591469" },
+
+  { d:"30", m:"OUT", dia:"Sexta-feira, 30 de outubro", hora:"19h30 às 22h30",
+    titulo:"Pintura em Taça", local:"De Sá Bar e Choperia · Santo André/SP", regiao:"sa",
+    tags:["Público geral"], url:"https://www.sympla.com.br/evento/pintura-em-taca/3591436" }
+];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function cardHTML(e, destaque){
+  const tags = (destaque ? ['Próxima data'] : []).concat(e.tags)
+    .map((t,i) => `<span class="tag${destaque && i===0 ? ' tag-hot' : ''}">${esc(t)}</span>`).join('');
+  const btn = cls => `<a class="btn btn-primary btn-sm ${cls}" href="${esc(e.url)}" target="_blank" rel="noopener">Garantir ingresso <span aria-hidden="true">&rarr;</span></a>`;
+  return `<article class="ev" data-regiao="${esc(e.regiao)}">
+    <div class="ev-date"><b>${esc(e.d)}</b><span>${esc(e.m)}</span></div>
+    <div class="ev-main">
+      <h3>${esc(e.titulo)}</h3>
+      <p class="ev-meta">${esc(e.dia)} · ${esc(e.hora)}<br>${esc(e.local)}</p>
+      <div class="ev-tags">${tags}</div>
+    </div>
+    ${btn('ev-cta-desk')}
+    <div class="ev-cta-mobile">${btn('')}</div>
+  </article>`;
+}
+
+const lista = document.getElementById('agendaList');
+lista.innerHTML = EVENTOS.map((e,i) => cardHTML(e, i === 0)).join('');
+
+/* Os CTAs principais apontam direto para a compra da próxima data */
+const proxima = EVENTOS[0];
+if (proxima) {
+  ['heroCta','navCta','finalCta','stickyLink','menuCta'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.href = proxima.url; el.target = '_blank'; el.rel = 'noopener';
+  });
+}
+
+/* Filtro por região */
+const chips = [...document.querySelectorAll('.chip')];
+chips.forEach(chip => chip.addEventListener('click', () => {
+  chips.forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+  const f = chip.dataset.filter;
+  lista.querySelectorAll('.ev').forEach(ev => {
+    ev.style.display = (f === 'all' || ev.dataset.regiao === f) ? '' : 'none';
+  });
+}));
+
+/* Menu hamburger */
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+menu.hidden = false;
+const setMenu = (open) => {
+  menu.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', String(open));
+  burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  document.body.classList.toggle('menu-open', open);
+  if (open) menu.querySelector('a').focus({ preventScroll:true }); else burger.focus({ preventScroll:true });
+};
+burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+menu.addEventListener('click', (e) => { if (e.target.closest('a') || e.target.closest('[data-close]')) setMenu(false); });
+addEventListener('keydown', (e) => { if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false); });
+matchMedia('(min-width:1000px)').addEventListener('change', (m) => { if (m.matches) setMenu(false); });
+
+/* Header e barra fixa */
+const header = document.querySelector('header');
+const sticky = document.getElementById('stickyCta');
+const onScroll = () => {
+  header.classList.toggle('scrolled', scrollY > 10);
+  sticky.classList.toggle('show', scrollY > innerHeight * .8);
+};
+onScroll();
+addEventListener('scroll', onScroll, { passive:true });
+
+/* Reveal suave, com rede de segurança para nada ficar invisível */
+const alvos = [...document.querySelectorAll('.reveal')];
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { rootMargin:'0px 0px -6% 0px', threshold:.05 });
+  alvos.forEach(el => io.observe(el));
+  addEventListener('load', () => setTimeout(() => {
+    alvos.forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('in'); });
+  }, 300));
+} else {
+  alvos.forEach(el => el.classList.add('in'));
+}
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+['statDatas','statDatas2'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.textContent = EVENTOS.length;
+});
+</script>
+</body>
+</html>
